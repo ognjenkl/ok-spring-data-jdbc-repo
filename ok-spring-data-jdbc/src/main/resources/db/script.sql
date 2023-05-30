@@ -13,4 +13,23 @@ CREATE TABLE IF NOT EXISTS `order_item` (
     FOREIGN KEY (`purchase_order_id`) REFERENCES `purchase_order` (`id`)
 );
 
+create table IF NOT EXISTS region
+(
+    id   bigint auto_increment
+        primary key,
+    name varchar(255) null
+);
+
+create table IF NOT EXISTS district
+(
+    id        bigint auto_increment
+        primary key,
+    name      varchar(255) null,
+    region_id bigint       null,
+    constraint district_region_id_fk
+        foreign key (region_id) references region (id)
+);
+
+
+
 
