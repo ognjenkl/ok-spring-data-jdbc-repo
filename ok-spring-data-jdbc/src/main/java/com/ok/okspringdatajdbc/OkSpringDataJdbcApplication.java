@@ -17,25 +17,4 @@ public class OkSpringDataJdbcApplication {
     public static void main(String[] args) {
         SpringApplication.run(OkSpringDataJdbcApplication.class, args);
     }
-
-    @Configuration
-    static class HouseConverterId extends AbstractJdbcConfiguration {
-        @Override
-        @Bean
-        public JdbcCustomConversions jdbcCustomConversions() {
-            return new JdbcCustomConversions(
-                    java.util.List.of(
-                            new HouseWriteConverter()
-                    )
-            );
-        }
-
-        @WritingConverter
-        public static class HouseWriteConverter implements Converter<UUID, String> {
-
-            public String convert(UUID uuid) {
-                return (String) uuid.toString();
-            }
-        }
-    }
 }
