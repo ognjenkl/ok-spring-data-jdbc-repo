@@ -7,21 +7,19 @@ import org.springframework.data.convert.WritingConverter;
 import org.springframework.data.jdbc.core.convert.JdbcCustomConversions;
 import org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration;
 
-import java.util.UUID;
-
 @Configuration
-public class HouseIdConverter extends AbstractJdbcConfiguration {
+public class IDConverter extends AbstractJdbcConfiguration {
 
     @Bean
     @Override
     public JdbcCustomConversions jdbcCustomConversions() {
-        return new JdbcCustomConversions(java.util.List.of(new HouseWriteConverter()));
+        return new JdbcCustomConversions(java.util.List.of(new IDWriteConverter()));
     }
 
     @WritingConverter
-    public static class HouseWriteConverter implements Converter<UUID, String> {
-        public String convert(UUID uuid) {
-            return uuid.toString();
+    public static class IDWriteConverter implements Converter<ID, String> {
+        public String convert(ID id) {
+            return id.id();
         }
     }
 }

@@ -17,8 +17,8 @@ public class HouseIT {
 
     @Test
     void givenHouse_whenSave_returnHouseWithId() {
-        UUID id = houseRepository.nextIdentity();
-        String name = "house-" + id;
+        HouseId id = new HouseId(houseRepository.nextIdentity().toString());
+        String name = "house-" + id.id();
         House house = new House(id, name);
 
         System.out.println(house.id);

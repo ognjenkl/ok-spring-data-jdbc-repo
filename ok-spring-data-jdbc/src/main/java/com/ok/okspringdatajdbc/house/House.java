@@ -10,7 +10,7 @@ import java.util.UUID;
 public class House {
 
     @Id
-    final UUID id;
+    final HouseId id;
     @Version
     Long version;
     final String name;

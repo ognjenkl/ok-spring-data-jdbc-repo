@@ -1,6 +1,5 @@
 package com.ok.okspringdatajdbc.house;
 
-import java.util.List;
 import java.util.UUID;
 
 public interface HouseRepository {
@@ -8,5 +7,5 @@ public interface HouseRepository {
 
     void add(House house);
 
-    House findById(UUID id);
+    House findById(HouseId id);
 }

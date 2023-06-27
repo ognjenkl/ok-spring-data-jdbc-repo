@@ -22,7 +22,7 @@ public class HouseRepositoryImpl implements HouseRepository {
     }
 
     @Override
-    public House findById(UUID id) {
+    public House findById(HouseId id) {
         return jdbcHouseRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("House not found"));
     }
