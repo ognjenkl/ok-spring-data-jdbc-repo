@@ -1,11 +1,12 @@
 package com.ok.okspringdatajdbc.house;
 
 import java.util.List;
+import java.util.UUID;
 
 public interface HouseRepository {
-    String nextIdentity();
+    UUID nextIdentity();
 
     void add(House house);
 
-    House findById(String id);
+    House findById(UUID id);
 }

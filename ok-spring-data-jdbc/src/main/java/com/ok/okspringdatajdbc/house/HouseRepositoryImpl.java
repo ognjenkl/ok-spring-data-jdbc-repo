@@ -12,8 +12,8 @@ public class HouseRepositoryImpl implements HouseRepository {
     private final JdbcHouseRepository jdbcHouseRepository;
 
     @Override
-    public String nextIdentity() {
-        return UUID.randomUUID().toString();
+    public UUID nextIdentity() {
+        return UUID.randomUUID();
     }
 
     @Override
@@ -22,7 +22,7 @@ public class HouseRepositoryImpl implements HouseRepository {
     }
 
     @Override
-    public House findById(String id) {
+    public House findById(UUID id) {
         return jdbcHouseRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("House not found"));
     }

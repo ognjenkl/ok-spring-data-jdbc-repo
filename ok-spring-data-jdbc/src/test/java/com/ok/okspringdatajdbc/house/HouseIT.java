@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.UUID;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -15,7 +17,7 @@ public class HouseIT {
 
     @Test
     void givenHouse_whenSave_returnHouseWithId() {
-        String id = houseRepository.nextIdentity();
+        UUID id = houseRepository.nextIdentity();
         String name = "house-" + id;
         House house = new House(id, name);
 
@@ -25,6 +27,8 @@ public class HouseIT {
         houseRepository.add(house);
 
         House insertedHouse = houseRepository.findById(id);
+        System.out.println(insertedHouse.id);
+        System.out.println(insertedHouse.name);
         assertNotNull(insertedHouse);
         assertEquals(name, insertedHouse.name);
     }
