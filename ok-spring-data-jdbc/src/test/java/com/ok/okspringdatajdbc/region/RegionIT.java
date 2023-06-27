@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
-class RegionTest {
+class RegionIT {
 
     @Autowired
     private DistrictRepository districtRepository;
